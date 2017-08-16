@@ -4,22 +4,18 @@ import Adafruit_DHT
 
 import MySQLdb
 
-def truncateTable (tableName):
-    print 'Truncating: %s', (tableName)
+print 'Truncating:', (tableName)
 
-    db = MySQLdb.connect(host= "localhost", user="root", passwd="password", db="monitoring")
-    cursor = db.cursor()
+db = MySQLdb.connect(host= "localhost", user="root", passwd="password", db="monitoring")
+cursor = db.cursor()
 
-    try:
-       cursor.execute("""TRUNCATE %s""",(tableName))
-       db.commit()
-    except:
-       db.rollback()
+try:
+   cursor.execute("""TRUNCATE %s""",(tableName))
+   db.commit()
+except:
+   db.rollback()
 
-    db.close()
-
-
-truncateTable("TempHumid")
+db.close()
 
 while True:
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
