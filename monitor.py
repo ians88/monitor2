@@ -5,6 +5,8 @@ import Adafruit_DHT
 import MySQLdb
 
 def truncateTable (tableName):
+    print 'Truncating: %s', (tableName)
+
     db = MySQLdb.connect(host= "localhost", user="root", passwd="password", db="monitoring")
     cursor = db.cursor()
 
