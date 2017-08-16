@@ -4,13 +4,13 @@ import Adafruit_DHT
 
 import MySQLdb
 
-print 'Truncating:', (tableName)
+print 'Truncating: TempHumid'
 
 db = MySQLdb.connect(host= "localhost", user="root", passwd="password", db="monitoring")
 cursor = db.cursor()
 
 try:
-   cursor.execute("""TRUNCATE %s""",(tableName))
+   cursor.execute("""TRUNCATE TempHumid""")
    db.commit()
 except:
    db.rollback()
