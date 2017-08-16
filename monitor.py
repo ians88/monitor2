@@ -22,7 +22,7 @@ import time
 updateTime = time.time()
 
 def minute_passed(oldepoch):
-    return time.time() - oldepoch >= 30
+    return time.time() - oldepoch >= 10
 
 while True:
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
