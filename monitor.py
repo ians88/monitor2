@@ -6,8 +6,6 @@ import MySQLdb
 
 import time
 
-counter = itertools.count().next()
-
 # print 'Truncating: TempHumid'
 
 # db = MySQLdb.connect(host= "localhost", user="root", passwd="password", db="monitoring")
